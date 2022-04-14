@@ -11,7 +11,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 
-#change path here to run the programme
+
 
 
 class Window(Frame):
@@ -29,7 +29,6 @@ class Window(Frame):
         self.pack(fill=BOTH, expand=1)
         
         Label(self.master,text='サイコロを投げた回数ｎ(Number of times the dice are thrown n ):').place(x=30, y=20)
-        # 实例化一个entry对象，这个在主窗体添加一个菜单
         self.num = Entry(self.master)
         self.num.place(x=35, y=45)
         Button(self.master,text='計算(n<396)', command=self.calculate).place(x=200, y=40, width=190)
@@ -47,13 +46,10 @@ class Window(Frame):
             plt.savefig(path, dpi=700)
             plt.show()
             img = Image.open(path)
-            # 将图片固定设置为宽度为80，高度为80方便在界面中展示
             img = img.resize((410, 340))
-            # 想修改完宽和高的图片保存
             img.save(path)
-            # 加载保存的图片
             self.showImg()
-            # 加载一个默认图片，用于在上传按钮中显示
+
             
     def getRes(self,n):
         x = self.dp.shape[0]
@@ -92,7 +88,8 @@ class Window(Frame):
         img = Label(self,image=render)
         img.image = render
         img.place(x=20,y=90)
- 
+        
+#change path here to run the programme 
 path = "e:\\distribution.png" 
 root = Tk()
 root.geometry("450x450")
